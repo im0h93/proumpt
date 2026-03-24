@@ -2,8 +2,8 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>مكسب البرومبتات ✦ Pro</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+<title>مكسب البرومبات ✦ Pro</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
 /* ═══════════════════════════ TOKENS ═══════════════════════════ */
@@ -13,7 +13,7 @@
   --gb:rgba(255,255,255,.06);--gbr:rgba(255,255,255,.11);
   --sh:0 8px 40px rgba(0,0,0,.42);--bl:blur(24px);
   --tm:#f0eaff;--ts:#c5b8e8;--tmu:#7a6ea8;
-  --bg:#0a0814;--bg2:#0e0b1e;--sbw:70px;
+  --bg:#0a0814;--bg2:#0e0b1e;
   --rg:rgba(167,139,250,.18);
 }
 .lm{
@@ -37,37 +37,67 @@ body{font-family:'Tajawal',sans-serif;background:var(--bg);color:var(--tm);min-h
 .noise{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.18;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E")}
 
 /* ═══ LAYOUT ═══ */
-.shell{position:relative;z-index:1;display:flex;min-height:100vh}
+.shell{position:relative;z-index:1;display:flex;flex-direction:column;min-height:100vh}
 
-/* ═══ SIDEBAR ═══ */
-.sb{width:var(--sbw);flex-shrink:0;display:flex;flex-direction:column;align-items:center;padding:16px 0 13px;gap:4px;position:sticky;top:0;height:100vh;background:rgba(255,255,255,.025);border-left:1px solid var(--gbr);backdrop-filter:var(--bl);z-index:20}
-.sbl{font-family:'Cairo',sans-serif;font-weight:900;font-size:16px;background:linear-gradient(135deg,var(--gold3),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 9px rgba(245,200,66,.44));margin-bottom:9px;letter-spacing:-1px}
-.sbn{width:46px;height:46px;border-radius:13px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;border:1px solid transparent;background:transparent;cursor:pointer;transition:all .28s cubic-bezier(.34,1.56,.64,1);color:var(--tmu)}
-.sbn .ni{font-size:18px;line-height:1;transition:transform .28s}
-.sbn .nl{font-family:'Cairo',sans-serif;font-size:8.5px;font-weight:600}
-.sbn:hover{background:rgba(255,255,255,.055);color:var(--ts);border-color:var(--gbr)}
+/* ═══ TOP NAVBAR ═══ */
+.sb{
+  width:100%;height:auto;
+  display:flex;flex-direction:row;align-items:center;
+  padding:0 20px;gap:2px;
+  position:sticky;top:0;z-index:20;
+  background:rgba(10,8,20,.88);
+  border-bottom:1px solid var(--gbr);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+}
+.lm .sb{background:rgba(238,232,255,.92)}
+.sbl{
+  font-family:'Cairo',sans-serif;font-weight:900;
+  display:flex;align-items:baseline;gap:5px;
+  padding:10px 16px 10px 6px;
+  border-left:1px solid rgba(245,200,66,.2);margin-left:4px;flex-shrink:0;
+  letter-spacing:-.5px;line-height:1;
+  filter:drop-shadow(0 0 10px rgba(245,200,66,.3));
+}
+.sbl span:first-child{font-size:20px}
+.sbl span:last-child{font-size:11px;letter-spacing:.5px;font-weight:700}
+.sbn{
+  height:46px;padding:0 13px;min-width:auto;border-radius:10px;
+  display:flex;flex-direction:row;align-items:center;justify-content:center;gap:6px;
+  border:1px solid transparent;background:transparent;cursor:pointer;
+  transition:all .25s cubic-bezier(.34,1.56,.64,1);color:var(--tmu);
+  white-space:nowrap;
+}
+.sbn .ni{font-size:15px;line-height:1;transition:transform .25s;flex-shrink:0}
+.sbn .nl{font-family:'Cairo',sans-serif;font-size:11px;font-weight:700}
+.sbn:hover{background:rgba(255,255,255,.06);color:var(--ts);border-color:var(--gbr)}
 .sbn:hover .ni{transform:scale(1.14)}
-.sbn.on{background:linear-gradient(135deg,rgba(167,139,250,.16),rgba(192,132,252,.09));border-color:rgba(167,139,250,.34);color:var(--acc2);box-shadow:0 0 16px rgba(167,139,250,.13)}
+.sbn.on{background:linear-gradient(135deg,rgba(167,139,250,.16),rgba(192,132,252,.09));border-color:rgba(167,139,250,.34);color:var(--acc2);box-shadow:0 0 14px rgba(167,139,250,.12)}
 .sbn.on .nl{color:var(--acc2)}
 .sbsp{flex:1}
-.sbthm{width:38px;height:38px;border-radius:11px;border:1px solid var(--gbr);background:var(--gb);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;transition:all .28s;color:var(--tmu)}
+.sbthm{
+  width:36px;height:36px;border-radius:9px;border:1px solid var(--gbr);
+  background:var(--gb);cursor:pointer;display:flex;align-items:center;
+  justify-content:center;font-size:15px;transition:all .25s;color:var(--tmu);flex-shrink:0;
+}
 .sbthm:hover{background:rgba(245,200,66,.09);border-color:rgba(245,200,66,.3);color:var(--gold)}
 .sb-notif{position:absolute;top:5px;right:5px;width:7px;height:7px;border-radius:50%;background:var(--grn);box-shadow:0 0 6px var(--grn)}
+/* Topbar right pills */
+.sb-right{display:flex;align-items:center;gap:8px;padding-right:4px;margin-right:4px;border-right:1px solid var(--gbr)}
+.sb-badge{font-family:'Cairo',sans-serif;font-size:10px;font-weight:700;padding:3px 10px;border-radius:999px;background:linear-gradient(135deg,rgba(245,200,66,.2),rgba(255,140,0,.1));border:1px solid rgba(245,200,66,.35);color:var(--gold);letter-spacing:.5px;flex-shrink:0}
+.sb-pill{font-family:'Tajawal',sans-serif;font-size:11px;padding:4px 11px;border-radius:999px;display:flex;align-items:center;gap:4px;flex-shrink:0}
+.sp-acc{background:rgba(167,139,250,.09);border:1px solid rgba(167,139,250,.24);color:var(--acc2)}
+.sp-gld{background:rgba(245,200,66,.07);border:1px solid rgba(245,200,66,.2);color:var(--gold);font-family:'Cairo',sans-serif;font-weight:600}
 
 /* ═══ MAIN ═══ */
 .main{flex:1;min-width:0;display:flex;flex-direction:column;overflow:hidden}
 
-/* ═══ TOPBAR ═══ */
-.tb{display:flex;align-items:center;justify-content:space-between;padding:15px 26px 13px;border-bottom:1px solid var(--gbr);background:rgba(255,255,255,.018);backdrop-filter:blur(8px);position:sticky;top:0;z-index:15}
-.tb-t{font-family:'Cairo',sans-serif;font-weight:900;font-size:clamp(16px,2.5vw,23px);background:linear-gradient(135deg,var(--gold3),var(--gold),var(--gold2),#ff8a00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 11px rgba(245,200,66,.35))}
-.tb-r{display:flex;align-items:center;gap:8px}
-.pro-badge{font-family:'Cairo',sans-serif;font-size:10px;font-weight:700;padding:3px 10px;border-radius:999px;background:linear-gradient(135deg,rgba(245,200,66,.2),rgba(255,140,0,.1));border:1px solid rgba(245,200,66,.35);color:var(--gold);letter-spacing:.5px}
-.tb-pill{font-family:'Tajawal',sans-serif;font-size:11px;padding:4px 11px;border-radius:999px;display:flex;align-items:center;gap:4px}
-.tp-acc{background:rgba(167,139,250,.09);border:1px solid rgba(167,139,250,.24);color:var(--acc2)}
-.tp-gld{background:rgba(245,200,66,.07);border:1px solid rgba(245,200,66,.2);color:var(--gold);font-family:'Cairo',sans-serif;font-weight:600}
+/* ═══ OLD TOPBAR → hidden (nav replaced it) ═══ */
+.tb{display:none}
+.tb-t,.tb-r,.pro-badge,.tb-pill,.tp-acc,.tp-gld{display:none}
 
 /* ═══ SCROLL ═══ */
-.cs{flex:1;overflow-y:auto;padding:22px 26px 56px;display:flex;flex-direction:column;gap:16px}
+.cs{flex:1;overflow-y:auto;padding:22px 28px 60px;display:flex;flex-direction:column;gap:16px;max-width:860px;margin:0 auto;width:100%}
 .cs::-webkit-scrollbar{width:4px}
 .cs::-webkit-scrollbar-thumb{background:rgba(167,139,250,.28);border-radius:999px}
 
@@ -301,6 +331,14 @@ input[type=range].mxc-range:active ~ .mxc-thumb{transform:translate(-50%,-50%) s
 }
 .mx-active-badge.show{display:flex}
 .mx-active-dot{width:5px;height:5px;border-radius:50%;background:#34d399;box-shadow:0 0 5px #34d399;animation:ldP 2s ease-in-out infinite}
+/* Typing dots */
+.t-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--acc2);margin:0 2px;animation:tDot 1.2s ease-in-out infinite}
+.t-dot:nth-child(2){animation-delay:.2s}
+.t-dot:nth-child(3){animation-delay:.4s}
+@keyframes tDot{0%,80%,100%{transform:scale(.6);opacity:.4}40%{transform:scale(1);opacity:1}}
+/* Idea quick options */
+.idea-opt{font-family:'Tajawal',sans-serif;font-size:11px;font-weight:600;padding:5px 13px;border-radius:999px;cursor:pointer;border:1.5px solid var(--gbr);background:rgba(255,255,255,.04);color:var(--tmu);transition:all .22s cubic-bezier(.34,1.56,.64,1);user-select:none}
+.idea-opt:hover{border-color:var(--io-c,var(--acc2));color:var(--io-c,var(--acc2));background:var(--io-bg,rgba(167,139,250,.08));transform:translateY(-1px) scale(1.04)}
 
 /* Two-column card pickers */
 .mx-pickers{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
@@ -502,7 +540,171 @@ input[type=range].mxr{
 .tech-reset.show{display:block}
 .tech-reset:hover{background:rgba(248,113,113,.14)}
 
-.adv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+/* ══ SETTINGS CARD — professional redesign ══ */
+#settingsCard{
+  padding:0;
+  background:linear-gradient(160deg,rgba(245,200,66,.03) 0%,rgba(167,139,250,.02) 100%);
+  border:1px solid rgba(245,200,66,.18);
+  position:relative;overflow:hidden;
+}
+#settingsCard::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(245,200,66,.3),transparent);
+}
+.stg-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:13px 18px 11px;
+  border-bottom:1px solid rgba(245,200,66,.1);
+  background:rgba(245,200,66,.03);
+}
+.stg-title{
+  font-family:'Cairo',sans-serif;font-size:13px;font-weight:800;
+  color:var(--tm);display:flex;align-items:center;gap:9px;
+}
+.stg-title-icon{
+  width:30px;height:30px;border-radius:8px;
+  background:linear-gradient(135deg,rgba(245,200,66,.22),rgba(167,139,250,.12));
+  border:1px solid rgba(245,200,66,.3);
+  display:flex;align-items:center;justify-content:center;font-size:14px;
+  box-shadow:0 0 12px rgba(245,200,66,.15);flex-shrink:0;
+}
+.stg-live{
+  font-family:'Tajawal',sans-serif;font-size:9.5px;font-weight:700;
+  padding:2px 9px;border-radius:999px;letter-spacing:.4px;
+  background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.25);
+  color:#34d399;display:flex;align-items:center;gap:4px;
+}
+.stg-live-dot{width:5px;height:5px;border-radius:50%;background:#34d399;box-shadow:0 0 5px #34d399;animation:ldP 2s ease-in-out infinite}
+.stg-body{padding:16px 18px;display:flex;flex-direction:column;gap:16px}
+
+/* ── Ratio selector ── */
+.stg-section{display:flex;flex-direction:column;gap:9px}
+.stg-lbl{
+  font-family:'Tajawal',sans-serif;font-size:10px;font-weight:700;
+  color:var(--tmu);letter-spacing:.5px;text-transform:uppercase;
+  display:flex;align-items:center;gap:6px;
+}
+.stg-lbl::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--gbr),transparent)}
+.stg-lbl-val{
+  font-family:'Courier New',monospace;font-size:10px;font-weight:700;
+  padding:1px 8px;border-radius:5px;
+  background:rgba(245,200,66,.1);border:1px solid rgba(245,200,66,.2);
+  color:var(--gold);letter-spacing:.5px;
+}
+
+/* Ratio cards */
+.stg-ratios{display:flex;gap:7px;flex-wrap:wrap}
+.stg-ratio{
+  position:relative;cursor:pointer;
+  border:1.5px solid var(--gbr);border-radius:10px;
+  background:rgba(255,255,255,.03);
+  padding:8px 10px 7px;
+  transition:all .22s cubic-bezier(.34,1.56,.64,1);
+  display:flex;flex-direction:column;align-items:center;gap:4px;
+  min-width:52px;user-select:none;
+}
+.lm .stg-ratio{background:rgba(255,255,255,.45);border-color:rgba(0,0,0,.1)}
+.stg-ratio:hover{border-color:rgba(245,200,66,.4);transform:translateY(-2px)}
+.stg-ratio.on{
+  border-color:var(--gold);
+  background:rgba(245,200,66,.09);
+  box-shadow:0 0 16px rgba(245,200,66,.15),0 4px 12px rgba(0,0,0,.12);
+}
+.stg-ratio-preview{
+  width:28px;height:18px;display:flex;align-items:center;justify-content:center;
+}
+.stg-ratio-rect{
+  border:1.5px solid var(--tmu);border-radius:2px;
+  transition:border-color .2s,background .2s;
+  background:transparent;
+}
+.stg-ratio.on .stg-ratio-rect{border-color:var(--gold);background:rgba(245,200,66,.15)}
+.stg-ratio-tag{
+  font-family:'Courier New',monospace;font-size:9px;font-weight:700;
+  color:var(--tmu);letter-spacing:.3px;transition:color .2s;
+}
+.stg-ratio.on .stg-ratio-tag{color:var(--gold)}
+.stg-ratio-chk{
+  position:absolute;top:4px;right:4px;
+  width:10px;height:10px;border-radius:50%;
+  background:var(--gold);display:none;align-items:center;justify-content:center;
+  font-size:7px;color:#1a1040;font-weight:900;
+  box-shadow:0 0 6px rgba(245,200,66,.4);
+}
+.stg-ratio.on .stg-ratio-chk{display:flex}
+
+/* Detail slider */
+.stg-detail-wrap{display:flex;gap:6px;align-items:stretch}
+.stg-detail-btn{
+  flex:1;cursor:pointer;border-radius:11px;padding:10px 8px 9px;
+  border:1.5px solid var(--gbr);background:rgba(255,255,255,.03);
+  display:flex;flex-direction:column;align-items:center;gap:5px;
+  transition:all .22s cubic-bezier(.34,1.56,.64,1);user-select:none;
+}
+.lm .stg-detail-btn{background:rgba(255,255,255,.45);border-color:rgba(0,0,0,.1)}
+.stg-detail-btn:hover{transform:translateY(-2px)}
+.stg-detail-btn.on{box-shadow:0 0 18px var(--db-s,rgba(167,139,250,.18))}
+.stg-detail-icon{font-size:16px;line-height:1;transition:transform .25s}
+.stg-detail-btn:hover .stg-detail-icon,.stg-detail-btn.on .stg-detail-icon{transform:scale(1.15)}
+.stg-detail-name{font-family:'Cairo',sans-serif;font-size:11px;font-weight:700;color:var(--tmu);transition:color .2s}
+.stg-detail-sub{font-family:'Tajawal',sans-serif;font-size:9px;color:var(--tmu);opacity:.6;transition:opacity .2s;text-align:center}
+.stg-detail-btn.on .stg-detail-name,.stg-detail-btn.on .stg-detail-sub{opacity:1}
+.stg-detail-bar{
+  width:100%;height:3px;border-radius:999px;margin-top:2px;
+  background:var(--gbr);overflow:hidden;
+}
+.stg-detail-fill{height:100%;border-radius:999px;background:var(--db-c,var(--acc2));width:0;transition:width .3s}
+.stg-detail-btn.on .stg-detail-fill{width:100%}
+
+/* Platform grid */
+.stg-platforms{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}
+.stg-plat{
+  display:flex;align-items:center;gap:8px;
+  padding:9px 12px;border-radius:12px;cursor:pointer;
+  border:1.5px solid var(--gbr);background:rgba(255,255,255,.03);
+  transition:all .22s cubic-bezier(.34,1.56,.64,1);user-select:none;
+  position:relative;overflow:hidden;
+}
+.lm .stg-plat{background:rgba(255,255,255,.45);border-color:rgba(0,0,0,.1)}
+.stg-plat::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 0% 50%,var(--pp-g,transparent),transparent 70%);
+  opacity:0;transition:opacity .3s;
+}
+.stg-plat:hover{transform:translateY(-2px) scale(1.02)}
+.stg-plat:hover::before,.stg-plat.on::before{opacity:1}
+.stg-plat.on{
+  border-color:var(--pp-c,var(--acc));
+  background:var(--pp-bg,rgba(167,139,250,.08));
+  box-shadow:0 0 20px var(--pp-s,rgba(167,139,250,.12)),0 4px 14px rgba(0,0,0,.1);
+}
+.stg-plat-icon{font-size:17px;flex-shrink:0;transition:transform .25s}
+.stg-plat:hover .stg-plat-icon,.stg-plat.on .stg-plat-icon{transform:scale(1.1)}
+.stg-plat-info{flex:1;min-width:0}
+.stg-plat-name{font-family:'Cairo',sans-serif;font-size:11.5px;font-weight:700;color:var(--tm);white-space:nowrap}
+.stg-plat-sub{font-family:'Tajawal',sans-serif;font-size:9px;color:var(--tmu);white-space:nowrap}
+.stg-plat-chk{
+  width:16px;height:16px;border-radius:50%;flex-shrink:0;
+  background:var(--pp-c,var(--acc));display:none;align-items:center;justify-content:center;
+  font-size:9px;color:#fff;font-weight:900;
+  box-shadow:0 0 8px var(--pp-s,rgba(167,139,250,.4));
+}
+.stg-plat.on .stg-plat-chk{display:flex}
+
+/* Token estimate chip */
+.stg-token-wrap{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:9px 13px;border-radius:11px;
+  background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);
+}
+.lm .stg-token-wrap{background:rgba(0,0,0,.04);border-color:rgba(0,0,0,.08)}
+.stg-token-left{font-family:'Tajawal',sans-serif;font-size:10.5px;color:var(--tmu);display:flex;align-items:center;gap:6px}
+.stg-token-val{
+  font-family:'Courier New',monospace;font-size:11px;font-weight:700;
+  color:var(--acc2);background:rgba(167,139,250,.1);
+  padding:2px 9px;border-radius:6px;border:1px solid rgba(167,139,250,.2);
+}
+.adv-grid{display:none}
 .ag label{font-family:'Tajawal',sans-serif;font-size:11px;color:var(--tmu);display:block;margin-bottom:6px;font-weight:600}
 .rbrow,.vbrow,.pbrow{display:flex;gap:5px;flex-wrap:wrap}
 .rb,.vb,.pb{font-family:'Cairo',sans-serif;font-size:11px;font-weight:600;padding:5px 11px;border-radius:8px;border:1.5px solid var(--gbr);background:var(--gb);color:var(--tmu);cursor:pointer;transition:all .2s}
@@ -573,19 +775,18 @@ input[type=range].mxr{
 .ql-gd{font-family:'Cairo',sans-serif;font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(245,200,66,.08);border:1px solid rgba(245,200,66,.22);color:var(--gold)}
 
 /* ═══ SECTIONS GRID ═══ */
-.rsegs{padding:14px 18px;display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-@media(max-width:700px){.rsegs{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:400px){.rsegs{grid-template-columns:1fr 1fr}}
+.rsegs{padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(max-width:600px){.rsegs{grid-template-columns:1fr}}
 
 .segcard{
-  border-radius:14px;border:1.5px solid var(--scb,rgba(255,255,255,.09));
+  border-radius:16px;border:1.5px solid var(--scb,rgba(255,255,255,.09));
   background:var(--scbg,rgba(255,255,255,.03));
   overflow:hidden;cursor:default;
   opacity:0;transform:translateY(12px) scale(.97);
   animation:sgIn .42s cubic-bezier(.22,1,.36,1) forwards;
   transition:border-color .25s,box-shadow .25s,transform .25s;
 }
-.segcard:hover{border-color:var(--scb2,rgba(255,255,255,.18));transform:translateY(-2px);box-shadow:0 6px 18px var(--scs,rgba(0,0,0,.12))}
+.segcard:hover{border-color:var(--scb2,rgba(255,255,255,.18));transform:translateY(-2px);box-shadow:0 8px 24px var(--scs,rgba(0,0,0,.12))}
 .lm .segcard{background:rgba(255,255,255,.38);border-color:rgba(0,0,0,.08)}
 .lm .segcard:hover{background:rgba(255,255,255,.6)}
 @keyframes sgIn{to{opacity:1;transform:translateY(0) scale(1)}}
@@ -919,10 +1120,231 @@ input[type=range].mxr{
 
 #elemsEntryBtn:hover{background:linear-gradient(135deg,rgba(167,139,250,.16),rgba(192,132,252,.09))!important;border-color:rgba(167,139,250,.5)!important;transform:translateY(-2px);box-shadow:0 6px 20px rgba(167,139,250,.16)}
 
+/* ══ TECH PLATFORM SUGGESTION CARDS ══ */
+.tpl-plat-card{
+  border-radius:13px;border:1.5px solid rgba(255,255,255,.07);
+  background:rgba(255,255,255,.03);
+  padding:11px 12px;cursor:pointer;
+  transition:all .22s cubic-bezier(.34,1.56,.64,1);
+  position:relative;overflow:hidden;
+}
+.lm .tpl-plat-card{background:rgba(255,255,255,.42);border-color:rgba(0,0,0,.08)}
+.tpl-plat-card::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 0% 0%,var(--tpcbg,transparent),transparent 70%);
+  opacity:0;transition:opacity .3s;
+}
+.tpl-plat-card:hover{
+  border-color:var(--tpc,var(--acc2));
+  background:var(--tpcbg,rgba(167,139,250,.07));
+  transform:translateY(-3px) scale(1.02);
+  box-shadow:0 8px 24px var(--tpcs,rgba(0,0,0,.15));
+}
+.tpl-plat-card:hover::before{opacity:1}
+.tpl-plat-card.active{
+  border-color:var(--tpc,var(--acc2));
+  background:var(--tpcbg,rgba(167,139,250,.07));
+  box-shadow:0 0 20px var(--tpcs,rgba(0,0,0,.15));
+}
+.tpl-plat-card.dimmed{opacity:.35;transform:scale(.97)}
+.tpl-plat-hdr{display:flex;align-items:center;gap:8px;margin-bottom:7px}
+.tpl-plat-icon{font-size:16px;flex-shrink:0;line-height:1}
+.tpl-plat-info{flex:1;min-width:0}
+.tpl-plat-name{font-family:'Cairo',sans-serif;font-size:11.5px;font-weight:800;color:var(--tm)}
+.tpl-plat-sub{font-family:'Tajawal',sans-serif;font-size:9px;color:var(--tmu)}
+.tpl-plat-score{
+  font-family:'Courier New',monospace;font-size:11px;font-weight:700;
+  width:28px;height:20px;border-radius:6px;flex-shrink:0;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
+  color:var(--sc,var(--acc2));display:flex;align-items:center;justify-content:center;
+  letter-spacing:-.5px;
+}
+.tpl-plat-tags{display:flex;flex-wrap:wrap;gap:3px;margin-bottom:7px}
+.tpl-plat-tags span{
+  font-family:'Tajawal',sans-serif;font-size:8.5px;font-weight:600;
+  padding:1px 7px;border-radius:999px;
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);
+  color:var(--tmu);
+}
+.tpl-plat-card:hover .tpl-plat-tags span,.tpl-plat-card.active .tpl-plat-tags span{
+  background:var(--tpcbg,rgba(167,139,250,.08));
+  border-color:var(--tpc,rgba(167,139,250,.25));
+  color:var(--tpc,var(--acc2));
+}
+.tpl-plat-bar{height:3px;border-radius:999px;background:rgba(255,255,255,.07);overflow:hidden;position:relative}
+.tpl-plat-fill{
+  height:100%;border-radius:999px;width:0;
+  transition:width 1s cubic-bezier(.22,1,.36,1) .2s;
+}
+.tpl-plat-card:hover .tpl-plat-fill,.tpl-plat-card.active .tpl-plat-fill{
+  width:var(--fill,80%);
+  box-shadow:0 0 6px currentColor;
+}
+
 #techSearch:focus{border-color:var(--acc);box-shadow:0 0 0 3px rgba(167,139,250,.08)}
 .lm #techSearch{background:rgba(255,255,255,.55)}
 .lm #techSearch:focus{background:rgba(255,255,255,.8)}
-@media(max-width:600px){.sb{width:54px}.cs{padding:15px 13px 50px}.tb{padding:12px 13px}.tb-pill{display:none}.adv-grid{grid-template-columns:1fr 1fr}}
+/* ═══════════════════════════════════════════════
+   RESPONSIVE — شامل لجميع الأجهزة
+   Desktop ≥1024 | Tablet 768-1023 | Mobile ≤767
+═══════════════════════════════════════════════ */
+
+/* ── Touch device optimizations ── */
+@media(hover:none) and (pointer:coarse){
+  .sbn:hover,.sc:hover,.stg-ratio:hover,.stg-plat:hover,
+  .stg-detail-btn:hover,.tpl-plat-card:hover,.mxc-trigger:hover,
+  .cmode-card:hover,.cmo-pill:hover,.idea-opt:hover,.sqchip:hover{
+    transform:none;
+  }
+  /* Ensure tap targets are at least 44px */
+  .sbn{min-height:44px}
+  .cmo-pill,.idea-opt,.ctab,.tctab,.psb{min-height:40px;display:flex;align-items:center}
+  /* Safe area for notched phones */
+  .cs{padding-bottom:env(safe-area-inset-bottom, 60px)}
+}
+
+/* ── Tablet: 768–1023px ── */
+@media(max-width:1023px){
+  .cs{padding:18px 18px 60px;max-width:100%}
+  .sbn .nl{font-size:10px}
+  .sb{padding:0 12px;gap:1px}
+  .sbl span:first-child{font-size:17px}
+  .sbl span:last-child{font-size:10px}
+  .sb-pill{display:none}
+  .stg-body{padding:12px 14px;gap:13px}
+  .mxc-pickers{gap:8px}
+  .tpl-plat-card{padding:9px 10px}
+  .stg-platforms{grid-template-columns:repeat(2,1fr)}
+  #techPlatGrid{grid-template-columns:1fr 1fr}
+  .rsegs{grid-template-columns:1fr 1fr}
+}
+
+/* ── Mobile: ≤767px ── */
+@media(max-width:767px){
+  /* Navbar */
+  .sb{padding:0 8px;gap:0;overflow-x:auto;overflow-y:hidden;scrollbar-width:none}
+  .sb::-webkit-scrollbar{display:none}
+  .sbl{padding:8px 10px 8px 4px;margin-left:2px}
+  .sbl span:first-child{font-size:15px}
+  .sbl span:last-child{display:none}
+  .sbn{height:42px;padding:0 9px;gap:4px}
+  .sbn .nl{display:none}
+  .sbn .ni{font-size:17px}
+  .sb-badge{display:none}
+  .sb-pill{display:none}
+  .sb-right{gap:5px;padding-right:2px;margin-right:2px}
+  .sbthm{width:32px;height:32px;font-size:13px}
+
+  /* Content */
+  .cs{padding:12px 12px 70px;gap:12px;max-width:100%}
+  .gc{padding:14px;border-radius:16px}
+
+  /* Cards */
+  .rsegs{grid-template-columns:1fr;gap:9px}
+  .segcard{border-radius:13px}
+  .create-mode-grid{grid-template-columns:1fr}
+  .stg-platforms{grid-template-columns:1fr 1fr}
+  #techPlatGrid{grid-template-columns:1fr}
+  .tpl-plat-card{padding:10px 11px}
+
+  /* Settings */
+  .stg-body{padding:12px 12px;gap:12px}
+  .stg-detail-wrap{gap:5px}
+  .stg-detail-btn{padding:8px 6px 8px}
+  .stg-detail-name{font-size:10.5px}
+  .stg-detail-sub{font-size:8.5px}
+  .stg-ratios{gap:5px}
+  .stg-ratio{min-width:44px;padding:7px 7px 6px}
+  .stg-token-wrap{padding:8px 10px}
+
+  /* Mixer */
+  .mxc-pickers{grid-template-columns:1fr}
+  .mxc-header{padding:11px 13px 9px}
+  #mixerCard .stg-body{padding:11px 13px}
+
+  /* Result card */
+  .rc{border-radius:18px}
+  .rc-top{padding:13px 14px 10px;flex-wrap:wrap;gap:8px}
+  .pst{padding:10px 12px 13px;gap:5px}
+  .psb{font-size:10px;padding:5px 10px}
+  .fpw{padding:12px 13px}
+  .ft{font-size:11.5px;max-height:140px}
+
+  /* Chat */
+  .chat-panel{border-radius:16px}
+  .chat-log{max-height:200px}
+
+  /* Generator */
+  #iidea{min-height:90px;font-size:13.5px;padding:11px 13px 28px}
+  .gbtn{font-size:14px;padding:12px 32px}
+  #ideaOpts{gap:5px}
+  .idea-opt{font-size:10.5px;padding:4px 10px}
+
+  /* Style cards */
+  .gw{height:auto;min-height:120px}
+  .sgr{grid-template-columns:repeat(2,1fr)}
+  .sc{padding:9px 7px 8px}
+  .scnm{font-size:10px}
+  .scsb{font-size:8.5px}
+
+  /* Tech cards */
+  .tgw{height:auto}
+  .tgw .sgr{grid-template-columns:repeat(2,1fr)}
+
+  /* Mode tabs */
+  .style-mode-tabs{gap:3px}
+  .smt{font-size:11.5px;padding:7px 10px}
+
+  /* Cat tabs */
+  .cat-row{gap:4px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .cat-row::-webkit-scrollbar{display:none}
+  .ctab,.tctab{font-size:11px;padding:5px 11px;white-space:nowrap}
+
+  /* Cmode pills */
+  .cmo-pills{gap:5px}
+  .cmo-pill{font-size:10.5px;padding:4px 11px}
+  .cmo-label{font-size:11px}
+
+  /* Platform suggestions */
+  .stg-plat{padding:8px 10px;gap:7px}
+  .stg-plat-icon{font-size:15px}
+  .stg-plat-name{font-size:10.5px}
+  .stg-plat-sub{font-size:8px}
+
+  /* Variation, history, collections */
+  .var-tabs{flex-wrap:wrap;gap:5px}
+  .pgrid{grid-template-columns:1fr}
+  .chartsRow{grid-template-columns:1fr!important}
+
+  /* Elements page */
+  .tctab{font-size:10.5px;padding:5px 10px}
+  .kc{font-size:10px;padding:3px 8px}
+  .sc-head-lbl{font-size:10px}
+  .rb-btn{font-size:11px;padding:7px 14px}
+
+  /* Progress */
+  .ql-row{padding:8px 13px}
+}
+
+/* ── Small Mobile: ≤400px ── */
+@media(max-width:400px){
+  .sb{gap:0;padding:0 4px}
+  .sbn{padding:0 7px}
+  .sbn .ni{font-size:16px}
+  .cs{padding:10px 10px 70px}
+  .gc{padding:12px;border-radius:14px}
+  .stg-platforms{grid-template-columns:1fr}
+  .smt{font-size:10.5px;padding:6px 8px;gap:4px}
+  .smt-badge{font-size:8px;padding:1px 5px}
+  .gbtn{font-size:13px;padding:11px 24px;width:100%}
+  .gen-row{flex-direction:column;align-items:stretch}
+  .psb{font-size:9.5px;padding:4px 8px}
+  .stg-detail-wrap{flex-direction:column}
+  .stg-detail-btn{flex-direction:row;justify-content:flex-start;gap:10px;padding:9px 12px}
+  .stg-detail-bar{display:none}
+  .create-mode-grid{grid-template-columns:1fr}
+  .mxc-slider-labels{flex-direction:column;gap:5px;align-items:center}
+}
 </style>
 </head>
 <body>
@@ -963,19 +1385,26 @@ input[type=range].mxr{
 </div>
 
 <div class="shell">
-  <!-- SIDEBAR -->
+  <!-- TOP NAVBAR -->
   <nav class="sb">
-    <div class="sbl">م٭</div>
-    <button class="sbn on" data-p="gen" onclick="goP('gen',this)" title="المولّد"><span class="ni">✦</span><span class="nl">المولّد</span></button>
-    <button class="sbn" data-p="elems" onclick="goP('elems',this)" title="العناصر" id="elemsNavBtn"><span class="ni">🧩</span><span class="nl">عناصر</span></button>
-    <button class="sbn" data-p="var" onclick="goP('var',this)" title="المتغيرات"><span class="ni">🔀</span><span class="nl">تنويع</span></button>
-    <button class="sbn" data-p="hist" onclick="goP('hist',this)" title="السجل"><span class="ni">🕐</span><span class="nl">السجل</span></button>
-    <button class="sbn" data-p="coll" onclick="goP('coll',this)" title="المجموعات"><span class="ni">📁</span><span class="nl">مجموعات</span></button>
-    <button class="sbn" data-p="stats" onclick="goP('stats',this)" title="الإحصائيات"><span class="ni">📊</span><span class="nl">إحصاء</span></button>
-    <button class="sbn" data-p="tpl" onclick="goP('tpl',this)" title="القوالب"><span class="ni">💡</span><span class="nl">قوالب</span></button>
-    <button class="sbn" data-p="plat" onclick="goP('plat',this)" title="المنصات"><span class="ni">🌐</span><span class="nl">منصات</span></button>
+    <div class="sbl">
+      <span style="background:linear-gradient(135deg,var(--gold3),var(--gold),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">مكسب</span>
+      <span style="font-size:13px;-webkit-text-fill-color:var(--acc2);color:var(--acc2);opacity:.85">البرومبات</span>
+    </div>
+    <button class="sbn on" data-p="gen"   onclick="goP('gen',this)"   title="المولّد"><span class="ni">✦</span><span class="nl">المولّد</span></button>
+    <button class="sbn"    data-p="elems" onclick="goP('elems',this)" title="العناصر" id="elemsNavBtn"><span class="ni">🧩</span><span class="nl">العناصر</span></button>
+    <button class="sbn"    data-p="hist"  onclick="goP('hist',this)"  title="السجل"><span class="ni">🕐</span><span class="nl">السجل</span></button>
+    <button class="sbn"    data-p="coll"  onclick="goP('coll',this)"  title="المجموعات"><span class="ni">📁</span><span class="nl">مجموعات</span></button>
+    <button class="sbn"    data-p="stats" onclick="goP('stats',this)" title="الإحصائيات"><span class="ni">📊</span><span class="nl">إحصاء</span></button>
+    <button class="sbn"    data-p="tpl"   onclick="goP('tpl',this)"   title="القوالب"><span class="ni">💡</span><span class="nl">قوالب</span></button>
+    <button class="sbn"    data-p="plat"  onclick="goP('plat',this)"  title="المنصات"><span class="ni">🌐</span><span class="nl">منصات</span></button>
     <div class="sbsp"></div>
-    <button class="sbthm" id="themeBtn" onclick="toggleTheme()" title="تبديل النمط">🌙</button>
+    <div class="sb-right">
+      <div class="sb-badge">PRO</div>
+      <div class="sb-pill sp-acc">Claude Sonnet 4</div>
+      <div class="sb-pill sp-gld">📝 <span id="totalCnt">0</span></div>
+      <button class="sbthm" id="themeBtn" onclick="toggleTheme()" title="تبديل النمط">🌙</button>
+    </div>
   </nav>
 
   <div class="main">
@@ -984,7 +1413,7 @@ input[type=range].mxr{
       <div class="tb-r">
         <div class="pro-badge">PRO</div>
         <div class="tb-pill tp-acc">Claude Sonnet 4</div>
-        <div class="tb-pill tp-gld">📝 <span id="totalCnt">0</span></div>
+        <div class="tb-pill tp-gld">📝 <span id="totalCnt2">0</span></div>
       </div>
     </div>
 
@@ -995,10 +1424,15 @@ input[type=range].mxr{
         <div class="gc">
           <div class="stt">🖊️ الفكرة</div>
           <div class="iwrap">
-            <textarea id="iidea" placeholder="اكتب فكرتك... مثلاً: مدينة عربية في المطر ليلاً، أو فارس يمتطي حصاناً من النار في الصحراء" maxlength="500"></textarea>
+            <textarea id="iidea" placeholder="اكتب فكرتك هنا لإنشاء البرومبت" maxlength="500"></textarea>
             <div class="ifoot"><span id="chcnt">0 / 500</span><span>Ctrl+Enter ⚡</span></div>
           </div>
-          <div class="suggest-row" id="sqrow"></div>
+          <div class="suggest-row" id="sqrow" style="display:none"></div>
+          <!-- Quick options grid: changes per mode -->
+          <div id="ideaOptsWrap" style="margin-top:10px">
+            <div style="font-family:'Tajawal',sans-serif;font-size:10px;font-weight:700;color:var(--tmu);letter-spacing:.4px;margin-bottom:7px;opacity:.7">اقتراحات سريعة:</div>
+            <div id="ideaOpts" style="display:flex;flex-wrap:wrap;gap:6px"></div>
+          </div>
         </div>
 
         <div class="gc">
@@ -1138,6 +1572,7 @@ input[type=range].mxr{
             </div>
           </div>
 
+          <!-- ══ TECH PLATFORM SUGGESTIONS ══ -->
         </div><!-- /gc style card -->
 
         <!-- ════════════════ MIXER CARD — premium ════════════════ -->
@@ -1229,12 +1664,273 @@ input[type=range].mxr{
         </div>
 
         <div class="gc" id="settingsCard">
-          <div class="stt">⚙️ إعدادات</div>
-          <div class="adv-grid">
-            <div class="ag"><label>نسبة الأبعاد</label><div class="rbrow"><button class="rb" data-r="1:1" onclick="selR(this)">1:1</button><button class="rb" data-r="4:3" onclick="selR(this)">4:3</button><button class="rb on" data-r="16:9" onclick="selR(this)">16:9</button><button class="rb" data-r="9:16" onclick="selR(this)">9:16</button><button class="rb" data-r="21:9" onclick="selR(this)">21:9</button></div></div>
-            <div class="ag"><label>مستوى التفصيل</label><div class="vbrow"><button class="vb" data-d="brief" onclick="selD(this)">موجز</button><button class="vb on" data-d="standard" onclick="selD(this)">قياسي</button><button class="vb" data-d="ultra" onclick="selD(this)">خبير</button></div></div>
-            <div class="ag"><label>المنصة المستهدفة</label><div class="pbrow"><button class="pb on" data-p="midjourney" style="--pbc:#f5c842;--pbbg:rgba(245,200,66,.1)" onclick="selP(this)">🌌 MJ</button><button class="pb" data-p="sd" style="--pbc:#a78bfa;--pbbg:rgba(167,139,250,.1)" onclick="selP(this)">⚗️ SD</button><button class="pb" data-p="dalle" style="--pbc:#60a5fa;--pbbg:rgba(96,165,250,.1)" onclick="selP(this)">🤖 DALL·E</button><button class="pb" data-p="gemini" style="--pbc:#4285f4;--pbbg:rgba(66,133,244,.1)" onclick="selP(this)">✦ Gemini</button></div></div>
+
+          <!-- ── Header ── -->
+          <div class="stg-header">
+            <div class="stg-title">
+              <div class="stg-title-icon">⚙️</div>
+              إعدادات التوليد
+            </div>
+            <div class="stg-live"><span class="stg-live-dot"></span> مباشر</div>
           </div>
+
+          <div class="stg-body">
+
+            <!-- ── 1. Aspect Ratio ── -->
+            <div class="stg-section">
+              <div class="stg-lbl">
+                📐 نسبة الأبعاد
+                <span class="stg-lbl-val" id="ratioLbl">16:9</span>
+              </div>
+              <div class="stg-ratios">
+
+                <div class="stg-ratio" data-r="1:1" onclick="selR2(this)">
+                  <span class="stg-ratio-chk">✓</span>
+                  <div class="stg-ratio-preview">
+                    <div class="stg-ratio-rect" style="width:18px;height:18px"></div>
+                  </div>
+                  <span class="stg-ratio-tag">1:1</span>
+                </div>
+
+                <div class="stg-ratio" data-r="4:3" onclick="selR2(this)">
+                  <span class="stg-ratio-chk">✓</span>
+                  <div class="stg-ratio-preview">
+                    <div class="stg-ratio-rect" style="width:22px;height:16px"></div>
+                  </div>
+                  <span class="stg-ratio-tag">4:3</span>
+                </div>
+
+                <div class="stg-ratio on" data-r="16:9" onclick="selR2(this)">
+                  <span class="stg-ratio-chk">✓</span>
+                  <div class="stg-ratio-preview">
+                    <div class="stg-ratio-rect" style="width:26px;height:15px"></div>
+                  </div>
+                  <span class="stg-ratio-tag">16:9</span>
+                </div>
+
+                <div class="stg-ratio" data-r="9:16" onclick="selR2(this)">
+                  <span class="stg-ratio-chk">✓</span>
+                  <div class="stg-ratio-preview">
+                    <div class="stg-ratio-rect" style="width:14px;height:24px"></div>
+                  </div>
+                  <span class="stg-ratio-tag">9:16</span>
+                </div>
+
+                <div class="stg-ratio" data-r="21:9" onclick="selR2(this)">
+                  <span class="stg-ratio-chk">✓</span>
+                  <div class="stg-ratio-preview">
+                    <div class="stg-ratio-rect" style="width:30px;height:13px"></div>
+                  </div>
+                  <span class="stg-ratio-tag">21:9</span>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- ── 2. Detail Level ── -->
+            <div class="stg-section">
+              <div class="stg-lbl">🎯 مستوى التفصيل</div>
+              <div class="stg-detail-wrap">
+
+                <div class="stg-detail-btn" data-d="brief" onclick="selD2(this)"
+                  style="--db-c:#34d399;--db-s:rgba(52,211,153,.18);border-color:rgba(52,211,153,.2)">
+                  <div class="stg-detail-icon">📝</div>
+                  <div class="stg-detail-name">موجز</div>
+                  <div class="stg-detail-sub">60-80 كلمة</div>
+                  <div class="stg-detail-bar"><div class="stg-detail-fill" style="--db-c:#34d399;width:33%"></div></div>
+                </div>
+
+                <div class="stg-detail-btn on" data-d="standard" onclick="selD2(this)"
+                  style="--db-c:#a78bfa;--db-s:rgba(167,139,250,.18);border-color:rgba(167,139,250,.3);background:rgba(167,139,250,.07)">
+                  <div class="stg-detail-icon">✨</div>
+                  <div class="stg-detail-name">قياسي</div>
+                  <div class="stg-detail-sub">120-150 كلمة</div>
+                  <div class="stg-detail-bar"><div class="stg-detail-fill" style="--db-c:#a78bfa;width:66%"></div></div>
+                </div>
+
+                <div class="stg-detail-btn" data-d="ultra" onclick="selD2(this)"
+                  style="--db-c:#f5c842;--db-s:rgba(245,200,66,.18);border-color:rgba(245,200,66,.2)">
+                  <div class="stg-detail-icon">🔬</div>
+                  <div class="stg-detail-name">خبير</div>
+                  <div class="stg-detail-sub">200+ كلمة</div>
+                  <div class="stg-detail-bar"><div class="stg-detail-fill" style="--db-c:#f5c842;width:100%"></div></div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- ── 3. Target Platform ── -->
+            <div class="stg-section">
+              <div class="stg-lbl" id="platSectionLbl">🚀 المنصة المستهدفة</div>
+
+              <!-- ─ IMAGE PLATFORMS (visual mode) ─ -->
+              <div id="imgPlatWrap">
+                <div class="stg-platforms">
+
+                  <div class="stg-plat on" data-p="midjourney" onclick="selP2(this)"
+                    style="--pp-c:#f5c842;--pp-bg:rgba(245,200,66,.08);--pp-s:rgba(245,200,66,.15);--pp-g:rgba(245,200,66,.06)">
+                    <span class="stg-plat-chk">✓</span>
+                    <span class="stg-plat-icon">🌌</span>
+                    <div class="stg-plat-info">
+                      <div class="stg-plat-name">Midjourney</div>
+                      <div class="stg-plat-sub">v7 · --ar · --style raw</div>
+                    </div>
+                  </div>
+
+                  <div class="stg-plat" data-p="sd" onclick="selP2(this)"
+                    style="--pp-c:#a78bfa;--pp-bg:rgba(167,139,250,.08);--pp-s:rgba(167,139,250,.15);--pp-g:rgba(167,139,250,.06)">
+                    <span class="stg-plat-chk">✓</span>
+                    <span class="stg-plat-icon">⚗️</span>
+                    <div class="stg-plat-info">
+                      <div class="stg-plat-name">Stable Diffusion</div>
+                      <div class="stg-plat-sub">SDXL · Flux.1 · tokens</div>
+                    </div>
+                  </div>
+
+                  <div class="stg-plat" data-p="dalle" onclick="selP2(this)"
+                    style="--pp-c:#60a5fa;--pp-bg:rgba(96,165,250,.08);--pp-s:rgba(96,165,250,.15);--pp-g:rgba(96,165,250,.06)">
+                    <span class="stg-plat-chk">✓</span>
+                    <span class="stg-plat-icon">🤖</span>
+                    <div class="stg-plat-info">
+                      <div class="stg-plat-name">DALL·E 3</div>
+                      <div class="stg-plat-sub">GPT-4o · natural lang</div>
+                    </div>
+                  </div>
+
+                  <div class="stg-plat" data-p="gemini" onclick="selP2(this)"
+                    style="--pp-c:#4285f4;--pp-bg:rgba(66,133,244,.08);--pp-s:rgba(66,133,244,.15);--pp-g:rgba(66,133,244,.06)">
+                    <span class="stg-plat-chk">✓</span>
+                    <span class="stg-plat-icon">✦</span>
+                    <div class="stg-plat-info">
+                      <div class="stg-plat-name">Gemini Imagen</div>
+                      <div class="stg-plat-sub">Imagen 3 · descriptive</div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <!-- ─ DEV PLATFORMS (tech mode only) ─ -->
+              <div id="devPlatWrap" style="display:none">
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+                  <span style="font-family:'Tajawal',sans-serif;font-size:10px;color:var(--tmu)">أفضل المنصات حسب نوع مشروعك</span>
+                  <span id="techPlatMode" style="font-family:'Tajawal',sans-serif;font-size:9px;font-weight:700;padding:2px 9px;border-radius:999px;background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.25);color:#34d399">كل الأنواع</span>
+                </div>
+
+                <div id="techPlatGrid" style="display:grid;grid-template-columns:1fr 1fr;gap:7px">
+
+                  <div class="tpl-plat-card" data-modes="web,mobile" data-url="https://www.cursor.com"
+                    style="--tpc:#4285f4;--tpcbg:rgba(66,133,244,.08);--tpcs:rgba(66,133,244,.15)">
+                    <div class="tpl-plat-hdr">
+                      <span class="tpl-plat-icon">⚡</span>
+                      <div class="tpl-plat-info"><div class="tpl-plat-name">Cursor</div><div class="tpl-plat-sub">AI-First IDE</div></div>
+                      <span class="tpl-plat-score" style="--sc:#4285f4">98</span>
+                    </div>
+                    <div class="tpl-plat-tags"><span>GPT-4o</span><span>Claude</span><span>Autocomplete</span></div>
+                    <div class="tpl-plat-bar" style="--fill:98%"><div class="tpl-plat-fill" style="background:#4285f4"></div></div>
+                  </div>
+
+                  <div class="tpl-plat-card" data-modes="web" data-url="https://v0.dev"
+                    style="--tpc:#e2e8f0;--tpcbg:rgba(226,232,240,.06);--tpcs:rgba(226,232,240,.12)">
+                    <div class="tpl-plat-hdr">
+                      <span class="tpl-plat-icon">▲</span>
+                      <div class="tpl-plat-info"><div class="tpl-plat-name">v0 by Vercel</div><div class="tpl-plat-sub">UI Generator</div></div>
+                      <span class="tpl-plat-score" style="--sc:#e2e8f0">95</span>
+                    </div>
+                    <div class="tpl-plat-tags"><span>React</span><span>Tailwind</span><span>shadcn</span></div>
+                    <div class="tpl-plat-bar" style="--fill:95%"><div class="tpl-plat-fill" style="background:#e2e8f0"></div></div>
+                  </div>
+
+                  <div class="tpl-plat-card" data-modes="web,mobile" data-url="https://bolt.new"
+                    style="--tpc:#f5c842;--tpcbg:rgba(245,200,66,.08);--tpcs:rgba(245,200,66,.15)">
+                    <div class="tpl-plat-hdr">
+                      <span class="tpl-plat-icon">⚡</span>
+                      <div class="tpl-plat-info"><div class="tpl-plat-name">Bolt.new</div><div class="tpl-plat-sub">Full-Stack AI</div></div>
+                      <span class="tpl-plat-score" style="--sc:#f5c842">94</span>
+                    </div>
+                    <div class="tpl-plat-tags"><span>Claude</span><span>Node.js</span><span>Deploy</span></div>
+                    <div class="tpl-plat-bar" style="--fill:94%"><div class="tpl-plat-fill" style="background:#f5c842"></div></div>
+                  </div>
+
+                  <div class="tpl-plat-card" data-modes="web,mobile" data-url="https://github.com/features/copilot"
+                    style="--tpc:#34d399;--tpcbg:rgba(52,211,153,.08);--tpcs:rgba(52,211,153,.15)">
+                    <div class="tpl-plat-hdr">
+                      <span class="tpl-plat-icon">🐙</span>
+                      <div class="tpl-plat-info"><div class="tpl-plat-name">GitHub Copilot</div><div class="tpl-plat-sub">Code Assistant</div></div>
+                      <span class="tpl-plat-score" style="--sc:#34d399">93</span>
+                    </div>
+                    <div class="tpl-plat-tags"><span>GPT-4o</span><span>Claude</span><span>VS Code</span></div>
+                    <div class="tpl-plat-bar" style="--fill:93%"><div class="tpl-plat-fill" style="background:#34d399"></div></div>
+                  </div>
+
+                  <div class="tpl-plat-card" data-modes="mobile" data-url="https://flutterflow.io"
+                    style="--tpc:#60a5fa;--tpcbg:rgba(96,165,250,.08);--tpcs:rgba(96,165,250,.15)">
+                    <div class="tpl-plat-hdr">
+                      <span class="tpl-plat-icon">💙</span>
+                      <div class="tpl-plat-info"><div class="tpl-plat-name">FlutterFlow</div><div class="tpl-plat-sub">No-Code Mobile</div></div>
+                      <span class="tpl-plat-score" style="--sc:#60a5fa">90</span>
+                    </div>
+                    <div class="tpl-plat-tags"><span>Flutter</span><span>Firebase</span><span>iOS/Android</span></div>
+                    <div class="tpl-plat-bar" style="--fill:90%"><div class="tpl-plat-fill" style="background:#60a5fa"></div></div>
+                  </div>
+
+                  <div class="tpl-plat-card" data-modes="web" data-url="https://lovable.dev"
+                    style="--tpc:#f472b6;--tpcbg:rgba(244,114,182,.08);--tpcs:rgba(244,114,182,.15)">
+                    <div class="tpl-plat-hdr">
+                      <span class="tpl-plat-icon">🩷</span>
+                      <div class="tpl-plat-info"><div class="tpl-plat-name">Lovable</div><div class="tpl-plat-sub">React Builder</div></div>
+                      <span class="tpl-plat-score" style="--sc:#f472b6">89</span>
+                    </div>
+                    <div class="tpl-plat-tags"><span>React</span><span>Supabase</span><span>Tailwind</span></div>
+                    <div class="tpl-plat-bar" style="--fill:89%"><div class="tpl-plat-fill" style="background:#f472b6"></div></div>
+                  </div>
+
+                  <div class="tpl-plat-card" data-modes="web,mobile" data-url="https://codeium.com/windsurf"
+                    style="--tpc:#a78bfa;--tpcbg:rgba(167,139,250,.08);--tpcs:rgba(167,139,250,.15)">
+                    <div class="tpl-plat-hdr">
+                      <span class="tpl-plat-icon">🏄</span>
+                      <div class="tpl-plat-info"><div class="tpl-plat-name">Windsurf</div><div class="tpl-plat-sub">Agentic IDE</div></div>
+                      <span class="tpl-plat-score" style="--sc:#a78bfa">88</span>
+                    </div>
+                    <div class="tpl-plat-tags"><span>Claude</span><span>Cascade</span><span>Multi-file</span></div>
+                    <div class="tpl-plat-bar" style="--fill:88%"><div class="tpl-plat-fill" style="background:#a78bfa"></div></div>
+                  </div>
+
+                  <div class="tpl-plat-card" data-modes="mobile" data-url="https://expo.dev"
+                    style="--tpc:#fb923c;--tpcbg:rgba(251,146,60,.08);--tpcs:rgba(251,146,60,.15)">
+                    <div class="tpl-plat-hdr">
+                      <span class="tpl-plat-icon">📦</span>
+                      <div class="tpl-plat-info"><div class="tpl-plat-name">Expo EAS</div><div class="tpl-plat-sub">React Native</div></div>
+                      <span class="tpl-plat-score" style="--sc:#fb923c">87</span>
+                    </div>
+                    <div class="tpl-plat-tags"><span>SDK 51</span><span>OTA Updates</span><span>TypeScript</span></div>
+                    <div class="tpl-plat-bar" style="--fill:87%"><div class="tpl-plat-fill" style="background:#fb923c"></div></div>
+                  </div>
+
+                </div>
+
+                <!-- Best match open button -->
+                <div id="techPlatOpen" style="display:none;margin-top:9px">
+                  <button onclick="openTechPlat()" style="width:100%;font-family:'Cairo',sans-serif;font-size:11.5px;font-weight:700;padding:9px 16px;border-radius:11px;border:1.5px solid rgba(52,211,153,.3);background:rgba(52,211,153,.07);color:#34d399;cursor:pointer;transition:all .22s;display:flex;align-items:center;justify-content:center;gap:7px" onmouseover="this.style.background='rgba(52,211,153,.14)'" onmouseout="this.style.background='rgba(52,211,153,.07)'">
+                    <span id="techPlatOpenIcon">🚀</span>
+                    <span id="techPlatOpenLabel">فتح المنصة الموصى بها</span>
+                    <span style="opacity:.5;font-size:10px">↗</span>
+                  </button>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- ── 4. Config Summary ── -->
+            <div class="stg-token-wrap">
+              <span class="stg-token-left">
+                <span style="opacity:.5">⚡</span>
+                إعدادات نشطة
+              </span>
+              <span class="stg-token-val" id="stgSummary">16:9 · قياسي · MJ</span>
+            </div>
+
+          </div><!-- /stg-body -->
         </div>
 
         <div class="gen-row">
@@ -1313,54 +2009,58 @@ input[type=range].mxr{
         <!-- Content (shown when prompt exists) -->
         <div id="elemsContent" style="display:none;flex-direction:column;gap:14px">
 
-          <!-- Top info bar -->
-          <div class="gc" style="padding:15px 20px">
-            <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+          <!-- ── Header Bar ── -->
+          <div class="gc" style="padding:0;overflow:hidden;background:linear-gradient(135deg,rgba(167,139,250,.05),rgba(192,132,252,.02));border:1px solid rgba(167,139,250,.18)">
+            <div style="padding:14px 18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px">
               <div style="display:flex;align-items:center;gap:11px">
-                <div style="width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,rgba(167,139,250,.22),rgba(192,132,252,.12));border:1px solid rgba(167,139,250,.32);display:flex;align-items:center;justify-content:center;font-size:17px;box-shadow:0 0 14px rgba(167,139,250,.2)">🧩</div>
+                <div style="width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,rgba(167,139,250,.28),rgba(192,132,252,.15));border:1px solid rgba(167,139,250,.35);display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:0 0 16px rgba(167,139,250,.22);flex-shrink:0">🧩</div>
                 <div>
-                  <div style="font-family:'Cairo',sans-serif;font-weight:700;font-size:14px;color:var(--tm)">عناصر البرومبت</div>
-                  <div style="font-family:'Tajawal',sans-serif;font-size:11px;color:var(--tmu)" id="elemsHeaderSub">انقر على أي chip لتحديده أو إلغائه</div>
+                  <div style="font-family:'Cairo',sans-serif;font-weight:800;font-size:14.5px;color:var(--tm)">عناصر البرومبت الثمانية</div>
+                  <div style="font-family:'Tajawal',sans-serif;font-size:11px;color:var(--tmu);margin-top:2px" id="elemsHeaderSub">انقر على أي عنصر لتحديده أو إلغائه</div>
                 </div>
               </div>
               <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
-                <div style="font-family:'Tajawal',sans-serif;font-size:11.5px;padding:5px 13px;border-radius:999px;border:1px solid var(--gbr);background:rgba(255,255,255,.04);color:var(--tmu);display:flex;align-items:center;gap:5px">
-                  محدد: <b style="color:var(--acc2);font-family:Cairo,sans-serif;font-size:13px;margin-right:2px" id="elemsSelCount">—</b>
-                </div>
-                <button onclick="resetChips()" style="font-family:'Cairo',sans-serif;font-size:11.5px;font-weight:600;padding:6px 15px;border-radius:999px;border:1.5px solid var(--gbr);background:var(--gb);color:var(--tmu);cursor:pointer;transition:all .22s" onmouseover="this.style.color='var(--ts)'" onmouseout="this.style.color='var(--tmu)'">↺ تحديد الكل</button>
+                <span style="font-family:'Tajawal',sans-serif;font-size:11px;padding:4px 12px;border-radius:999px;border:1px solid rgba(167,139,250,.2);background:rgba(167,139,250,.06);color:var(--tmu)">محدد: <b style="color:var(--acc2);font-family:Cairo,sans-serif;font-size:13px" id="elemsSelCount">—</b></span>
+                <button onclick="resetChips()" style="font-family:'Cairo',sans-serif;font-size:11px;font-weight:700;padding:6px 14px;border-radius:999px;border:1.5px solid rgba(167,139,250,.2);background:rgba(167,139,250,.07);color:var(--acc2);cursor:pointer;transition:all .22s">↺ تحديد الكل</button>
               </div>
+            </div>
+            <!-- progress bar -->
+            <div style="height:2px;background:rgba(255,255,255,.04)">
+              <div id="elemsProgress" style="height:100%;width:100%;background:linear-gradient(90deg,var(--acc),var(--acc2));transition:width .4s;border-radius:999px"></div>
             </div>
           </div>
 
-          <!-- Chips grid — full width, 4 cols -->
-          <div class="gc" style="padding:16px">
+          <!-- ── Segments Grid ── -->
+          <div class="gc" style="padding:16px 18px">
             <div class="rsegs" id="rsegs"></div>
           </div>
 
-          <!-- Rebuild panel -->
-          <div class="gc" style="padding:18px 20px;background:linear-gradient(135deg,rgba(167,139,250,.06),rgba(192,132,252,.03))">
-            <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:14px">
-              <div>
-                <div style="font-family:'Cairo',sans-serif;font-weight:700;font-size:14px;color:var(--tm);margin-bottom:5px;display:flex;align-items:center;gap:7px">
-                  <span>⚡</span> إعادة بناء البرومبت
+          <!-- ── Rebuild Panel ── -->
+          <div class="gc" style="padding:0;overflow:hidden;background:linear-gradient(135deg,rgba(167,139,250,.05),rgba(245,200,66,.02));border:1px solid rgba(167,139,250,.16)">
+            <div style="padding:14px 18px;border-bottom:1px solid rgba(167,139,250,.1)">
+              <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px">
+                <div style="display:flex;align-items:center;gap:9px">
+                  <div style="width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,rgba(245,200,66,.2),rgba(167,139,250,.12));border:1px solid rgba(245,200,66,.25);display:flex;align-items:center;justify-content:center;font-size:14px">⚡</div>
+                  <div>
+                    <div style="font-family:'Cairo',sans-serif;font-weight:800;font-size:13px;color:var(--tm)">إعادة بناء البرومبت</div>
+                    <div style="font-family:'Tajawal',sans-serif;font-size:10.5px;color:var(--tmu)" id="rbInfo">حدد العناصر التي تريد تضمينها ثم اضغط بناء</div>
+                  </div>
                 </div>
-                <div style="font-family:'Tajawal',sans-serif;font-size:12px;color:var(--tmu)" id="rbInfo">حدد العناصر التي تريد تضمينها ثم اضغط بناء</div>
+                <button class="rb-btn rb-build" id="rbuildBtn" onclick="rebuildPrompt()">⚡ بناء من المحدد</button>
               </div>
-              <button class="rb-btn rb-build" id="rbuildBtn" onclick="rebuildPrompt()" style="white-space:nowrap">⚡ بناء من المحدد</button>
             </div>
-            <!-- rebuilt prompt output -->
-            <div id="rebuiltPreview" style="display:none;border-radius:13px;border:1px solid rgba(245,200,66,.2);background:rgba(245,200,66,.04);overflow:hidden">
-              <div style="display:flex;align-items:center;justify-content:space-between;padding:9px 14px;border-bottom:1px solid rgba(245,200,66,.1);background:rgba(245,200,66,.05)">
-                <span style="font-family:'Cairo',sans-serif;font-size:12px;font-weight:600;color:var(--gold);display:flex;align-items:center;gap:5px">
-                  <span style="width:5px;height:5px;border-radius:50%;background:var(--gold);box-shadow:0 0 5px var(--gold);display:inline-block"></span>
+            <div id="rebuiltPreview" style="display:none">
+              <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 16px;background:rgba(245,200,66,.04);border-bottom:1px solid rgba(245,200,66,.1)">
+                <span style="font-family:'Cairo',sans-serif;font-size:12px;font-weight:700;color:var(--gold);display:flex;align-items:center;gap:6px">
+                  <span style="width:5px;height:5px;border-radius:50%;background:var(--gold);box-shadow:0 0 6px var(--gold);display:inline-block"></span>
                   البرومبت المُعاد بناؤه
                 </span>
                 <div style="display:flex;gap:6px">
                   <button class="fpc" id="rebuiltCpBtn" onclick="cpRebuilt(this)">📋 نسخ</button>
-                  <button onclick="applyRebuilt()" style="font-family:'Cairo',sans-serif;font-size:10.5px;font-weight:600;padding:3px 12px;border-radius:999px;border:1px solid rgba(167,139,250,.3);background:rgba(167,139,250,.09);color:var(--acc2);cursor:pointer;transition:all .22s">✦ تطبيق كبرومبت رئيسي</button>
+                  <button onclick="applyRebuilt()" style="font-family:'Cairo',sans-serif;font-size:10.5px;font-weight:700;padding:4px 13px;border-radius:999px;border:1px solid rgba(167,139,250,.3);background:rgba(167,139,250,.1);color:var(--acc2);cursor:pointer;transition:all .22s">✦ تطبيق رئيسي</button>
                 </div>
               </div>
-              <div class="ft" id="rebuiltText" style="max-height:120px;font-size:11.5px"></div>
+              <div class="ft" id="rebuiltText" style="max-height:120px;font-size:11.5px;padding:12px 16px"></div>
             </div>
           </div>
 
@@ -1617,6 +2317,7 @@ input[type=range].mxr{
    STATE
 ════════════════════════════════════ */
 let SS='hyperrealistic',SR='16:9',SD='standard',SP='midjourney';
+let styleMode = 'visual'; // 'visual' | 'tech'  ← declared here so all functions can access it
 let mixS1='',mixS2='',mixRatio=50,useMixer=false;
 let varN=2,varType='style';
 let curRes=null,chatHistory=[],histFilter='all';
@@ -1900,6 +2601,49 @@ const SUGGESTS=['مدينة عربية في المطر ليلاً','فارس ع�
 })();
 function useSugg(t){document.getElementById('iidea').value=t;document.getElementById('chcnt').textContent=`${t.length} / 500`}
 
+/* ── Idea Quick Options ── */
+const IDEA_OPTS_VISUAL=[
+  {label:'🌅 مناظر',c:'#34d399',bg:'rgba(52,211,153,.08)',hint:'مناظر طبيعية خلابة في الفجر'},
+  {label:'👤 بورتريه',c:'#60a5fa',bg:'rgba(96,165,250,.08)',hint:'بورتريه احترافي'},
+  {label:'🏙️ مدينة ليلية',c:'#a78bfa',bg:'rgba(167,139,250,.08)',hint:'مدينة عربية في الليل'},
+  {label:'🎨 فن تجريدي',c:'#f472b6',bg:'rgba(244,114,182,.08)',hint:'فن تجريدي ملون'},
+  {label:'🌊 أعماق البحر',c:'#7dd3fc',bg:'rgba(125,211,252,.08)',hint:'أعماق المحيط الغامضة'},
+  {label:'🔥 خيال علمي',c:'#fb923c',bg:'rgba(251,146,60,.08)',hint:'عالم خيال علمي مستقبلي'},
+  {label:'🏜️ صحراء',c:'#f5c842',bg:'rgba(245,200,66,.08)',hint:'صحراء عربية عند الغروب'},
+  {label:'🧿 روحاني',c:'#e879f9',bg:'rgba(232,121,249,.08)',hint:'مشهد روحاني صوفي'},
+];
+const IDEA_OPTS_TECH=[
+  {label:'🖥️ UI تطبيق',c:'#60a5fa',bg:'rgba(96,165,250,.08)',hint:'واجهة تطبيق موبايل احترافية'},
+  {label:'🌐 موقع ويب',c:'#34d399',bg:'rgba(52,211,153,.08)',hint:'صفحة رئيسية موقع ويب حديث'},
+  {label:'📊 داشبورد',c:'#fbbf24',bg:'rgba(251,191,36,.08)',hint:'لوحة إحصاءات وبيانات'},
+  {label:'🛍️ متجر',c:'#fb923c',bg:'rgba(251,146,60,.08)',hint:'صفحة منتج لمتجر إلكتروني'},
+  {label:'🎮 لعبة',c:'#a78bfa',bg:'rgba(167,139,250,.08)',hint:'واجهة لعبة جوال'},
+  {label:'💳 مالي',c:'#34d399',bg:'rgba(52,211,153,.08)',hint:'تطبيق بنكي احترافي'},
+  {label:'🤖 AI Product',c:'#e879f9',bg:'rgba(232,121,249,.08)',hint:'منتج ذكاء اصطناعي'},
+  {label:'🎓 تعليم',c:'#f5c842',bg:'rgba(245,200,66,.08)',hint:'منصة تعليمية تفاعلية'},
+];
+function renderIdeaOpts(){
+  const opts=styleMode==='tech'?IDEA_OPTS_TECH:IDEA_OPTS_VISUAL;
+  const el=document.getElementById('ideaOpts');
+  if(!el)return;
+  el.innerHTML='';
+  opts.forEach(o=>{
+    const span=document.createElement('span');
+    span.className='idea-opt';
+    span.style.setProperty('--io-c',o.c);
+    span.style.setProperty('--io-bg',o.bg);
+    span.textContent=' '+o.label;
+    span.addEventListener('click',()=>useIdeaOpt(o.hint));
+    el.appendChild(span);
+  });
+}
+function useIdeaOpt(hint){
+  const el=document.getElementById('iidea');
+  el.value=hint;el.focus();
+  document.getElementById('chcnt').textContent=`${hint.length} / 500`;
+}
+renderIdeaOpts();
+
 document.getElementById('iidea').addEventListener('input',function(){document.getElementById('chcnt').textContent=`${this.value.length} / 500`});
 
 /* ════════════════════════════════════
@@ -1932,7 +2676,6 @@ function goP(id,btn){
 /* ════════════════════════════════════
    STYLE MODE SWITCHER
 ════════════════════════════════════ */
-let styleMode = 'visual'; // 'visual' | 'tech'
 
 function swStyleMode(mode){
   styleMode = mode;
@@ -1967,6 +2710,20 @@ function swStyleMode(mode){
   });
 
   updateCMBadge();
+  if(typeof renderIdeaOpts==='function') renderIdeaOpts();
+  if(typeof renderChatSuggs==='function') renderChatSuggs();
+  // Toggle platform sets: image (visual) vs dev (tech)
+  const isTechMode = mode === 'tech';
+  const imgW = document.getElementById('imgPlatWrap');
+  const devW = document.getElementById('devPlatWrap');
+  const lbl  = document.getElementById('platSectionLbl');
+  const sum  = document.getElementById('stgSummary');
+  if(imgW) imgW.style.display = isTechMode ? 'none' : 'block';
+  if(devW) devW.style.display = isTechMode ? 'block' : 'none';
+  if(lbl)  lbl.textContent    = isTechMode ? '🛠️ منصات التطوير' : '🚀 المنصة المستهدفة';
+  if(sum && isTechMode) sum.textContent = 'Tech Mode';
+  else if(sum) updateStgSummary();
+  if(isTechMode && typeof filterTechPlats==='function') filterTechPlats();
 }
 
 /* ════════════════════════════════════
@@ -2152,7 +2909,6 @@ function updateCMBadge(){
   if(!el) return;
 
   if(selected === 0){
-    // عرض العدد الإجمالي للعناصر المتاحة في النمط التقني
     const total = document.querySelectorAll('.cmode-card').length
                 + document.querySelectorAll('.cmo-pill').length;
     el.textContent  = total;
@@ -2167,7 +2923,77 @@ function updateCMBadge(){
     el.style.color       = '#34d399';
     el.style.borderColor = 'rgba(52,211,153,.4)';
   }
+  // update platform suggestions filter
+  filterTechPlats();
 }
+
+/* ── Tech Platform Suggestions ── */
+let activeTechPlatUrl = null;
+
+const PLAT_META = {
+  web:    {label:'ويب', color:'#60a5fa'},
+  mobile: {label:'جوال', color:'#34d399'},
+};
+
+function filterTechPlats(){
+  const cards   = document.querySelectorAll('.tpl-plat-card');
+  const modeEl  = document.getElementById('techPlatMode');
+  const openBtn = document.getElementById('techPlatOpen');
+  if(!cards.length) return;
+
+  const mode = createMode; // 'web' | 'mobile' | null
+
+  let bestCard = null, bestScore = 0;
+
+  cards.forEach(card => {
+    const modes = (card.dataset.modes||'').split(',');
+    const fits  = !mode || modes.includes(mode);
+    card.classList.toggle('dimmed',  !fits);
+    card.classList.toggle('active',  false);
+    if(fits){
+      const score = parseInt(card.querySelector('.tpl-plat-score')?.textContent||0);
+      if(score > bestScore){ bestScore=score; bestCard=card; }
+    }
+  });
+
+  // Highlight best match
+  if(bestCard){
+    bestCard.classList.remove('dimmed');
+    bestCard.classList.add('active');
+    activeTechPlatUrl = bestCard.dataset.url;
+    const name = bestCard.querySelector('.tpl-plat-name')?.textContent||'المنصة';
+    const icon = bestCard.querySelector('.tpl-plat-icon')?.textContent||'🚀';
+    const labelEl = document.getElementById('techPlatOpenLabel');
+    const iconEl  = document.getElementById('techPlatOpenIcon');
+    if(labelEl) labelEl.textContent = `فتح ${name}`;
+    if(iconEl)  iconEl.textContent  = icon;
+    if(openBtn) openBtn.style.display='block';
+  } else {
+    activeTechPlatUrl = null;
+    if(openBtn) openBtn.style.display='none';
+  }
+
+  // Update mode badge
+  if(modeEl){
+    const meta = mode ? PLAT_META[mode] : null;
+    modeEl.textContent = meta ? meta.label : 'كل الأنواع';
+    modeEl.style.background = meta ? meta.color+'18' : 'rgba(52,211,153,.1)';
+    modeEl.style.borderColor = meta ? meta.color+'44' : 'rgba(52,211,153,.25)';
+    modeEl.style.color = meta ? meta.color : '#34d399';
+  }
+}
+
+function openTechPlat(){
+  if(activeTechPlatUrl) window.open(activeTechPlatUrl,'_blank','noopener');
+}
+
+// Platform cards clickable to open
+document.addEventListener('click', e => {
+  const card = e.target.closest('.tpl-plat-card');
+  if(card && card.dataset.url){
+    window.open(card.dataset.url,'_blank','noopener');
+  }
+});
 function getCMInject(){
   if(!createMode) return '';
   const modeLabel = createMode==='web' ? 'Web Application' : 'Mobile Application';
@@ -2191,6 +3017,40 @@ function pS(c){c.closest('.sgr').querySelectorAll('.sc').forEach(x=>x.classList.
 function selR(b){document.querySelectorAll('.rb').forEach(x=>x.classList.remove('on'));b.classList.add('on');SR=b.dataset.r}
 function selD(b){document.querySelectorAll('.vb').forEach(x=>x.classList.remove('on'));b.classList.add('on');SD=b.dataset.d}
 function selP(b){document.querySelectorAll('.pb').forEach(x=>x.classList.remove('on'));b.classList.add('on');SP=b.dataset.p}
+
+/* ── New settings selectors ── */
+const PLAT_SHORT={midjourney:'MJ',sd:'SD',dalle:'DALL·E',gemini:'Gemini'};
+const DETAIL_SHORT={brief:'موجز',standard:'قياسي',ultra:'خبير'};
+function updateStgSummary(){
+  const el=document.getElementById('stgSummary');
+  if(el) el.textContent=`${SR} · ${DETAIL_SHORT[SD]||SD} · ${PLAT_SHORT[SP]||SP}`;
+}
+function selR2(btn){
+  document.querySelectorAll('.stg-ratio').forEach(x=>x.classList.remove('on'));
+  btn.classList.add('on'); SR=btn.dataset.r;
+  // keep legacy .rb in sync
+  document.querySelectorAll('.rb').forEach(x=>x.classList.toggle('on',x.dataset.r===SR));
+  const lbl=document.getElementById('ratioLbl');if(lbl)lbl.textContent=SR;
+  updateStgSummary();
+}
+function selD2(btn){
+  document.querySelectorAll('.stg-detail-btn').forEach(x=>{
+    x.classList.remove('on');
+    x.style.borderColor='';x.style.background='';
+  });
+  btn.classList.add('on');
+  btn.style.borderColor=getComputedStyle(btn).getPropertyValue('--db-c').trim()+'66'||'';
+  btn.style.background=getComputedStyle(btn).getPropertyValue('--db-s').trim()+'22'||'';
+  SD=btn.dataset.d;
+  document.querySelectorAll('.vb').forEach(x=>x.classList.toggle('on',x.dataset.d===SD));
+  updateStgSummary();
+}
+function selP2(btn){
+  document.querySelectorAll('.stg-plat').forEach(x=>x.classList.remove('on'));
+  btn.classList.add('on'); SP=btn.dataset.p;
+  document.querySelectorAll('.pb').forEach(x=>x.classList.toggle('on',x.dataset.p===SP));
+  updateStgSummary();
+}
 function selN(b){document.querySelectorAll('#pg-var .ag:first-child .rb').forEach(x=>x.classList.remove('on'));b.classList.add('on');varN=parseInt(b.dataset.n)}
 function selT(b){document.querySelectorAll('#pg-var .ag:last-child .rb').forEach(x=>x.classList.remove('on'));b.classList.add('on');varType=b.dataset.t}
 
@@ -2347,7 +3207,7 @@ function populateElementsPage(p){
 
   SECS.forEach((sec,i)=>{
     const val=p[sec.k]; if(!val) return;
-    const allChips=val.split(',').map(s=>s.trim()).filter(Boolean).slice(0,7);
+    const allChips=val.split(',').map(s=>s.trim()).filter(Boolean).slice(0,10);
     segState[sec.k]=new Set(allChips);
 
     const card2=document.createElement('div');
@@ -2375,6 +3235,9 @@ function populateElementsPage(p){
 
   // Hide rebuilt preview on fresh render
   document.getElementById('rebuiltPreview').style.display='none';
+  // Progress bar — starts full
+  const prog=document.getElementById('elemsProgress');
+  if(prog) prog.style.width='100%';
   updateRebuildInfo();
 }
 
@@ -2424,6 +3287,9 @@ function updateRebuildInfo(){
   const txt=`<span style="color:var(--tmu)">محدد:</span> <span style="color:var(--acc2);font-family:Cairo,sans-serif;font-weight:700">${selChips.length}</span> <span style="color:var(--tmu)">من</span> <span style="color:var(--ts);font-family:Cairo,sans-serif;font-weight:600">${allChips.length}</span> <span style="color:var(--tmu)">عنصر</span>`;
   const infoEl=document.getElementById('rbInfo');if(infoEl)infoEl.innerHTML=txt;
   const cntEl=document.getElementById('elemsSelCount');if(cntEl)cntEl.textContent=`${selChips.length} / ${allChips.length}`;
+  // progress bar
+  const prog=document.getElementById('elemsProgress');
+  if(prog&&allChips.length>0) prog.style.width=Math.round(selChips.length/allChips.length*100)+'%';
 }
 
 let rebuiltPromptText='';
@@ -2561,17 +3427,47 @@ function toggleStar(){
 }
 
 /* ════════════════════════════════════
-   CHAT REFINER
+   CHAT REFINER — smart + bilingual
 ════════════════════════════════════ */
-const CHAT_SUGGS=['اجعل الإضاءة أكثر دراماتيكية','غيّر الوقت إلى غروب الشمس','أضف تأثيرات الضباب','اجعل الألوان أكثر إشباعاً','فوكس أكثر على الموضوع الرئيسي','أضف عنصر ماء أو مطر'];
+const CHAT_SUGGS_VISUAL=[
+  'خليها أكثر دراما','الوقت يكون مغرب','ضبابية شوي','ألوان أكثر حيوية',
+  'ركز على الوجه','أضف مطر','الخلفية تكون أغمق','إضاءة احترافية أكثر'
+];
+const CHAT_SUGGS_TECH=[
+  'ارفع جودة الرندر','أضف تأثير فيلم','اجعله 8K','ضيّف grain طبيعي',
+  'غيّر الكاميرا لـ ARRI','استخدم Octane renderer','ألوان أكثر سينمائية','أضف depth of field'
+];
+function getChatSuggs(){return styleMode==='tech'?CHAT_SUGGS_TECH:CHAT_SUGGS_VISUAL}
 function initChat(){
   const log=document.getElementById('chatLog');log.innerHTML='';
-  addChatMsg('ai','مرحباً! يمكنك الآن تعديل البرومبت بالكلام الطبيعي. ماذا تريد تغييره؟');
-  document.getElementById('chatSugg').innerHTML=CHAT_SUGGS.map(s=>`<span class="cs-chip" onclick="useChatSugg('${s.replace(/'/g,"\\'")}')"> ${s}</span>`).join('');
+  const greet=styleMode==='tech'
+    ?'مرحباً! قل لي بالكلام الطبيعي أي تعديل تقني تريده على البرومبت 👨‍💻'
+    :'مرحباً! قل لي بالكلام الطبيعي أي تعديل تريده، مثلاً: "خليها ليلية" أو "الإضاءة تكون ذهبية" 🎨';
+  addChatMsg('ai',greet);
+  // Update placeholder based on mode
+  const inp=document.getElementById('chatInput');
+  if(inp) inp.placeholder=styleMode==='tech'
+    ?'مثل: ارفع الجودة، غيّر الكاميرا، أضف grain...'
+    :'مثل: خليها أكثر دراما، الوقت يكون مغرب...';
+  renderChatSuggs();
 }
-function addChatMsg(role,text){
+function renderChatSuggs(){
+  const el=document.getElementById('chatSugg');
+  if(!el)return;
+  el.innerHTML='';
+  getChatSuggs().forEach(s=>{
+    const span=document.createElement('span');
+    span.className='cs-chip';
+    span.textContent=' '+s;
+    span.addEventListener('click',()=>useChatSugg(s));
+    el.appendChild(span);
+  });
+}
+function addChatMsg(role,html,isHtml){
   const log=document.getElementById('chatLog');
-  const div=document.createElement('div');div.className=`chat-msg ${role}`;div.textContent=text;
+  const div=document.createElement('div');
+  div.className=`chat-msg ${role}`;
+  if(isHtml) div.innerHTML=html; else div.textContent=html;
   log.appendChild(div);log.scrollTop=log.scrollHeight;
 }
 function useChatSugg(t){document.getElementById('chatInput').value=t;sendChat()}
@@ -2581,34 +3477,55 @@ async function sendChat(){
   if(!curRes){addChatMsg('ai','الرجاء توليد برومبت أولاً.');return}
   addChatMsg('user',msg);inp.value='';
   document.getElementById('chatSendBtn').disabled=true;
-  const typing=document.createElement('div');typing.className='chat-msg ai typing';typing.textContent='...';
+  const typing=document.createElement('div');
+  typing.className='chat-msg ai typing';
+  typing.innerHTML='<span class="t-dot"></span><span class="t-dot"></span><span class="t-dot"></span>';
   document.getElementById('chatLog').appendChild(typing);
+  document.getElementById('chatLog').scrollTop=99999;
   chatHistory.push({role:'user',content:msg});
-  const sys=`You are a prompt refinement assistant. The user has an AI image prompt and wants to modify it.
-Current prompt JSON: ${JSON.stringify(curRes.parsed)}
-Original idea: ${curRes.idea}
-Style: ${curRes.style}
+  const modeCtx=styleMode==='tech'
+    ?'User is in TECHNICAL mode — focus on renderer, camera hardware, color science, AI model specs, output format.'
+    :'User is in VISUAL mode — focus on artistic style, mood, lighting, color palette, composition.';
+  const sys=`You are an expert AI image prompt refinement assistant. You understand Arabic colloquial dialect perfectly — Egyptian, Gulf, Levantine, Moroccan. Translate natural Arabic speech into precise English prompt modifications.
 
-The user will ask you to refine/modify specific aspects. 
-Return ONLY valid JSON with the SAME schema as the original, but with the requested modifications applied.
-Keep all unchanged fields. Improve the full_prompt to reflect the changes. Recalculate quality_score.
-No markdown, no explanation, ONLY the updated JSON.`;
+Current prompt JSON:
+${JSON.stringify(curRes.parsed,null,0)}
+Original idea: ${curRes.idea||''}
+Active style: ${curRes.style||styleMode}
+Mode: ${modeCtx}
+
+INSTRUCTIONS:
+- Understand ANY Arabic dialect (e.g. "خليها أكثر"=make it more, "شوي"=a little, "كثير"=a lot, "تكون"=should be, "أبي"=I want, "حلوة"=beautiful, "قوية"=strong/dramatic)
+- Apply the modification thoughtfully and enhance the prompt
+- Return ONLY valid JSON using the SAME schema as above
+- Update full_prompt to reflect ALL changes, recalculate quality_score (1-99)
+- NO markdown, NO explanation, ONLY JSON`;
   try{
-    const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1200,system:sys,messages:[...chatHistory]})});
+    const r=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1400,system:sys,messages:[...chatHistory]})
+    });
     const data=await r.json();
+    if(!r.ok){
+      typing.remove();
+      const errType=data?.type||data?.error?.type||'';
+      if(r.status===429||errType==='exceeded_limit'||errType==='rate_limit_error')
+        addChatMsg('ai','⏱️ تجاوزت حد الاستخدام مؤقتاً. انتظر دقائق ثم حاول مجدداً.');
+      else addChatMsg('ai','خطأ: '+(data?.error?.message||'HTTP '+r.status));
+      return;
+    }
     const raw=data.content?.find(b=>b.type==='text')?.text||'';
     let p;try{p=JSON.parse(raw.replace(/```json|```/g,'').trim())}catch{p=null}
     typing.remove();
     if(p&&p.full_prompt){
       curRes.parsed=p;
-      addChatMsg('ai','✅ تم تعديل البرومبت! شاهد النتيجة أعلاه.');
-      document.getElementById('rsegs').innerHTML='';
-      renderResult(p);
+      addChatMsg('ai','✅ تم التعديل! البرومبت تحدّث.');
+      renderResult(p);renderChatSuggs();
       chatHistory.push({role:'assistant',content:raw});
     }else{
-      addChatMsg('ai','حدث خطأ في التعديل. جرّب مرة أخرى.');
+      addChatMsg('ai','ما قدرت أفهم التعديل. جرّب صياغة مختلفة.');
     }
-  }catch{typing.remove();addChatMsg('ai','حدث خطأ في الاتصال.')}
+  }catch{typing.remove();addChatMsg('ai','خطأ في الاتصال. تأكد من اتصالك وحاول مجدداً.')}
   finally{document.getElementById('chatSendBtn').disabled=false}
 }
 function closeChat(){document.getElementById('chatPanel').classList.remove('show')}
@@ -2848,6 +3765,7 @@ renderTpl();
 // tech panel built statically in HTML
 // تحديث شارة النمط التقني فور تحميل الصفحة
 updateCMBadge();
+updateStgSummary();
 // نقل الـ portal dropdown لـ body مباشرة (يتجاوز كل stacking contexts)
 (function(){
   const portal = document.getElementById('mxPortalDrop');
